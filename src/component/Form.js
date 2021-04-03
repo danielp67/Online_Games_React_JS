@@ -31,7 +31,7 @@ class Form extends Component {
   
 
   render() {
-    const { author, comment,rate } = this.state;
+    const { author, comment } = this.state;
     
     return (
       <ThemeContext.Consumer  >
@@ -47,10 +47,10 @@ class Form extends Component {
        
           <div className="col-3 mt-1 pl-1 half-stars-example" >
               <div className="rating-group">
-                  <input className="rating__input rating__input--none" name="rate"  value="0"  type="radio" onChange={this.handleChange} />
+                  <input className="rating__input rating__input--none" name="rate" id="rating2-0" value="0"  type="radio" onChange={this.handleChange} />
                   <label aria-label="0 stars" className="rating__label" htmlFor="rating2-0">&nbsp;</label>
                   <label aria-label="0.5 stars" className="rating__label rating__label--half" htmlFor="rating2-05"><i className="rating__icon rating__icon--star fa fa-star-half"></i></label>
-                  <input className="rating__input" name="rate" value="0.5" type="radio" onChange={this.handleChange}/>
+                  <input className="rating__input" name="rate" id="rating2-05" value="0.5"  type="radio" onChange={this.handleChange}/>
                   <label aria-label="1 star" className="rating__label" htmlFor="rating2-10"><i className="rating__icon rating__icon--star fa fa-star"></i></label>
                   <input className="rating__input" name="rate" id="rating2-10" value="1"  type="radio" onChange={this.handleChange}/>
                   <label aria-label="1.5 stars" className="rating__label rating__label--half" htmlFor="rating2-15"><i className="rating__icon rating__icon--star fa fa-star-half"></i></label>

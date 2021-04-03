@@ -30,7 +30,7 @@ const CommentsHeader = () => {
     }
 
     render(){
-    const {commentsData, removeComment, editComment, handleSubmitUpdate} = this.props
+    const {removeComment, handleSubmitUpdate} = this.props
     const rows = this.props.commentsData.map((row, index) => {
       const comment = this.props.commentsData[index];
       return (
@@ -85,7 +85,7 @@ render(){
                     <div className="col-3 text-right">
                     Note : {comment.rate}/5
                     <div className="stars-outer">
-          <div className="stars-inner" style={{width :comment.rate*14.75}}></div>
+          <div className="stars-inner" style={{width: comment.rate * 14.75}}/>
         </div>
                     </div>
                 </div>
@@ -149,7 +149,7 @@ render(){
     }
 
     render(){
-    const {id, author, comment, rate} = this.state;
+    const {id, author, comment} = this.state;
    
       return (  
         <ThemeContext.Consumer >
@@ -195,7 +195,7 @@ render(){
         </div>
         <div className="card-body form-group row">
       
-        <label className="col-1 col-form-label" htmlFor="comment"></label>
+        <label className="col-1 col-form-label" htmlFor="comment"/>
         <input type="text" className="col-10 form-control" name="comment" value={comment} onChange={this.handleChange} required/>
         </div>
    <div className="card-footer">

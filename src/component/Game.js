@@ -28,13 +28,11 @@ class Game extends Component{
       const params = this.state.gameId
      axios.get('https://127.0.0.1:8000/game/'+params).then(res => {
       this.setState({Game : res.data.game[0], commentByGame : res.data.comments})
-      console.log(this.state)
-    }  
+    }
     )}
 
   handleSubmit = (comment) => {
        comment = JSON.stringify(comment)
-       console.log(comment)
        const params = this.state.gameId
        axios.post('https://127.0.0.1:8000/comment/add/'+params, comment, {headers:{"Content-Type" : "application/json"}})
       .then(res => {
@@ -49,12 +47,10 @@ class Game extends Component{
   handleSubmitUpdate = (comment) => {
     const params = comment.id
     comment = JSON.stringify(comment)
-    console.log(comment)
     axios.put('https://127.0.0.1:8000/comment/update/'+params, comment, {headers:{"Content-Type" : "application/json"}})
    .then(res => {
     if(res.status === 200){
      this.getGame();
-     console.log('refresh')
    }else {
         console.log("error comment");
     }

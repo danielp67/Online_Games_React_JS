@@ -3,7 +3,6 @@ import Filter from './Filter';
 import GamesCard from './GamesCard';
 import Autocomplete from './Autocomplete';
 import axios from 'axios';
-import {StoreContext} from './StoreContext';
 import {ThemeContext} from './ThemeContext';
 
 
@@ -14,12 +13,10 @@ class Home extends Component {
   this.state = {
     GamesList : [],
     GamesListFilter : [],
-
+    loading :false,
   }
-  console.log('StoreContext', StoreContext)
  }
 
- static contextType = StoreContext;
 
  componentDidMount() {
  this.getGames();
@@ -27,7 +24,12 @@ class Home extends Component {
 
  getGames =() => {
   axios.get(`https://127.0.0.1:8000/home`).then(res => {
-    this.setState({GamesList : res.data, GamesListFilter : res.data})  
+    if(res.status === 200){
+      this.setState({GamesList : res.data, GamesListFilter : res.data, loading:true})
+    }
+    else{
+      console.log('erreur chargement')
+    }
 })
 }
 
@@ -40,16 +42,17 @@ searchName = (filterName) => {
   }
 
   render() {
-    if(this.state.GamesList != null){
-
+      if(this.state.loading){
       return (
         <ThemeContext.Consumer>
         {({theme}) => (
           <div className="container-fluid" style={{backgroundColor: theme.background, color:theme.color}}>
           <div className="row">
-          <div className="col-10 offset-2">
+          <div className="col-10 offset-1">
+         
         <Filter gamesData={this.state.GamesListFilter} handleChange={this.handleChange} />
         <Autocomplete gamesData={this.state.GamesList}  searchName ={this.searchName} />
+        
         <GamesCard gamesData={this.state.GamesListFilter} />
       </div>
       </div>

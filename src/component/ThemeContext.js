@@ -1,4 +1,4 @@
-import React, {createContext, useState, Component} from 'react';
+import React from 'react';
 
 
 export const Theme = {
@@ -6,14 +6,16 @@ export const Theme = {
     background : '#000',
     color : '#FFF',
     divBackground : '#858585',
-    divColor : '#acdeff'
+    divColor : '#acdeff',
+    navBackground :'#858585'
   },
 
   light : {
     background :'#FFF',
     color : '#000',
     divBackground : '#FFF',
-    divColor : '#0400ff'
+    divColor : '#616161',
+    navBackground :'#eeeeee'
   }
 }
 

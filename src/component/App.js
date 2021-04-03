@@ -10,8 +10,8 @@ import Home from './Home';
 import NewGame from './NewGame';
 import Nav from './Nav';
 import Game from './Game';
-import {StoreContext, store} from './StoreContext';
 import {ThemeContext, Theme} from './ThemeContext';
+import Category from './Category';
 
 
   class App extends React.Component {
@@ -42,14 +42,13 @@ import {ThemeContext, Theme} from './ThemeContext';
           <ThemeContext.Provider value={this.state}>
               <Nav />
               <Switch>
-              <StoreContext.Provider>
                 <Route exact path="/">
                 <Redirect to="/home" />
                 </Route>
                 <Route path="/home" exact component={Home}/>
                 <Route path="/newgame" component={NewGame} />
                 <Route path="/game/:gameId"  component={Game} />
-                </StoreContext.Provider>
+                <Route path="/category/:categoryId" exact component={Category} />
               </Switch>
               </ThemeContext.Provider>
           </Router>
