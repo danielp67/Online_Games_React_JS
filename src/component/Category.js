@@ -6,15 +6,26 @@ import axios from 'axios';
 import {ThemeContext} from './ThemeContext';
 
 
-class Home extends Component {
+class Category extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            categoryId: 0,
+            categoryName: '',
             GamesList: [],
             GamesListFilter: [],
-            loading: false,
+            loading: false
         }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+        if (prevProps.match.params.categoryId !== this.props.match.params.categoryId) {
+            this.setState({loading: false})
+            this.getGames();
+        }
+
     }
 
 
@@ -23,14 +34,23 @@ class Home extends Component {
     }
 
     getGames = () => {
-        axios.get(`https://127.0.0.1:8000/home`).then(res => {
+        const params = this.props.match.params.categoryId;
+        axios.get(`https://127.0.0.1:8000/category/` + params).then(res => {
+
             if (res.status === 200) {
-                this.setState({GamesList: res.data, GamesListFilter: res.data, loading: true})
-            } else {
-                console.log('erreur chargement')
+                this.setState({GamesList: res.data, GamesListFilter: res.data, categoryId: parseInt(params)})
+                for (let i = 0; i < this.state.GamesList[0].category.length; i++) {
+
+                    if (this.state.categoryId === this.state.GamesList[0].category[i].id) {
+                        this.setState({categoryName: this.state.GamesList[0].category[i].name, loading: true})
+                    }
+
+                }
             }
+
         })
     }
+
 
     handleChange = (mapped) => {
         this.setState({GamesListFilter: mapped})
@@ -48,11 +68,10 @@ class Home extends Component {
                         <div className="container-fluid"
                              style={{backgroundColor: theme.background, color: theme.color}}>
                             <div className="row">
-                                <div className="col-10 offset-1">
-
+                                <div className="col-10 offset-2">
+                                    <h2 className="mt-4">Catégorie : {this.state.categoryName}</h2>
                                     <Filter gamesData={this.state.GamesListFilter} handleChange={this.handleChange}/>
                                     <Autocomplete gamesData={this.state.GamesList} searchName={this.searchName}/>
-
                                     <GamesCard gamesData={this.state.GamesListFilter}/>
                                 </div>
                             </div>
@@ -75,4 +94,4 @@ class Home extends Component {
 }
 
 
-export default Home;
+export default Category;

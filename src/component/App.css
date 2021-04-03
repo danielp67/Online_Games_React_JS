@@ -1,197 +1,183 @@
 
-
 a:hover {
-  text-decoration : none;
-  
+    text-decoration: none;
+
 }
 
 .card:hover {
-  background-color: rgb(250, 245, 248);
-  transition: 0.3s;
-  -moz-box-shadow: 0px 0px 10px 5px rgb(180, 180, 180);
-  -webkit-box-shadow: 0px 0px 10px 5px rgb(180, 180, 180);
-  -o-box-shadow: 0px 0px 10px 5px rgb(180, 180, 180);
-  box-shadow: 0px 0px 10px 5px rgb(180, 180, 180);
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
+    background-color: rgb(250, 245, 248);
+    transition: 0.3s;
+    -moz-box-shadow: 0px 0px 10px 5px rgb(180, 180, 180);
+    -webkit-box-shadow: 0px 0px 10px 5px rgb(180, 180, 180);
+    -o-box-shadow: 0px 0px 10px 5px rgb(180, 180, 180);
+    box-shadow: 0px 0px 10px 5px rgb(180, 180, 180);
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
 }
-
 
 
 input {
-  border: 1px solid #999;
-  padding: 0.5rem;
-  width: 300px;
+    border: 1px solid #999;
+    padding: 0.5rem;
+    width: 300px;
 }
 
 .no-suggestions {
-  color: #999;
-  padding: 0.5rem;
+    color: #999;
+    padding: 0.5rem;
 }
 
 .suggestions {
-  border: 1px solid #999;
-  border-top-width: 0;
-  list-style: none;
-  margin-top: 0;
-  max-height: 143px;
-  overflow-y: auto;
-  padding-left: 0;
-  width: calc(300px + 1rem);
+    border: 1px solid #999;
+    border-top-width: 0;
+    list-style: none;
+    margin-top: 0;
+    max-height: 143px;
+    overflow-y: auto;
+    padding-left: 0;
+    width: calc(300px + 1rem);
 }
 
 .suggestions li {
-  padding: 0.5rem;
+    padding: 0.5rem;
 }
 
 .suggestion-active,
 .suggestions li:hover {
-  background-color: #16b2ce;
-  color: #fae042;
-  cursor: pointer;
-  font-weight: 700;
-  transition: 0.3s;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
+    background-color: #16b2ce;
+    color: #fae042;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
 }
 
 .suggestions li:not(:last-of-type) {
-  border-bottom: 1px solid #999;
+    border-bottom: 1px solid #999;
 }
-
-
-
-
-
-
 
 
 .card__face {
-  width: 100%;
-  height: 100%;
- -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 
-.hidden{ 
-  visibility: hidden; 
-  position:absolute; 
+.hidden {
+    visibility: hidden;
+    position: absolute;
 
 }
 
 .comment {
-  width: 100%;
-  height: 100%;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
 }
 
 .comment.is-flipped {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .card__face--back {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 .half-stars-example .rating-group {
-  display: inline-flex;
+    display: inline-flex;
 }
+
 .half-stars-example .rating__icon {
-  pointer-events: none;
+    pointer-events: none;
 }
+
 .half-stars-example .rating__input {
-  position: absolute !important;
-  left: -9999px !important;
+    position: absolute !important;
+    left: -9999px !important;
 }
+
 .half-stars-example .rating__label {
-  cursor: pointer;
-  /* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
-  padding: 0 0.1em;
-  font-size: 1.2rem;
+    cursor: pointer;
+    /* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
+    padding: 0 0.1em;
+    font-size: 1.2rem;
 }
+
 .half-stars-example .rating__label--half {
-  padding-right: 0;
-  margin-right: -0.6em;
-  z-index: 2;
+    padding-right: 0;
+    margin-right: -0.6em;
+    z-index: 2;
 }
+
 .half-stars-example .rating__icon--star {
-  color: #f8ce0b;
+    color: #f8ce0b;
 }
+
 .half-stars-example .rating__icon--none {
-  color: #eee;
+    color: #eee;
 }
+
 .half-stars-example .rating__input--none:checked + .rating__label .rating__icon--none {
-  color: red;
+    color: red;
 }
+
 .half-stars-example .rating__input:checked ~ .rating__label .rating__icon--star {
-  color: #ddd;
+    color: #ddd;
 }
+
 .half-stars-example .rating-group:hover .rating__label .rating__icon--star,
 .half-stars-example .rating-group:hover .rating__label--half .rating__icon--star {
-  color: #f8ce0b;
+    color: #f8ce0b;
 }
+
 .half-stars-example .rating__input:hover ~ .rating__label .rating__icon--star,
 .half-stars-example .rating__input:hover ~ .rating__label--half .rating__icon--star {
-  color: #ddd;
+    color: #ddd;
 }
+
 .half-stars-example .rating-group:hover
 .rating__input--none:not(:hover)
 + .rating__label
 .rating__icon--none {
-  color: #eee;
+    color: #eee;
 }
+
 .half-stars-example .rating__input--none:hover + .rating__label .rating__icon--none {
-  color: red;
+    color: red;
 }
-
-
-
-
-
-
-
-
 
 
 .stars-outer {
-  display: inline-block;
-  position: relative;
-  font-family: FontAwesome;
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
 }
 
 .stars-outer::before {
-  content: "\f006 \f006 \f006 \f006 \f006";
+    content: "\f006 \f006 \f006 \f006 \f006";
 }
 
 .stars-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
 }
 
 .stars-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005";
-  color: #f8ce0b;
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #f8ce0b;
 }

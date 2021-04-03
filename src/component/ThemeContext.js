@@ -2,25 +2,26 @@ import React from 'react';
 
 
 export const Theme = {
-  dark : {
-    background : '#000',
-    color : '#FFF',
-    divBackground : '#858585',
-    divColor : '#acdeff',
-    navBackground :'#858585'
-  },
+    dark: {
+        background: '#000',
+        color: '#FFF',
+        divBackground: '#858585',
+        divColor: '#acdeff',
+        navBackground: '#858585'
+    },
 
-  light : {
-    background :'#FFF',
-    color : '#000',
-    divBackground : '#FFF',
-    divColor : '#616161',
-    navBackground :'#eeeeee'
-  }
+    light: {
+        background: '#FFF',
+        color: '#000',
+        divBackground: '#FFF',
+        divColor: '#616161',
+        navBackground: '#eeeeee'
+    }
 }
 
 export const ThemeContext = React.createContext({
-  theme: Theme.dark,
-  toggleTheme: () => {},
+    theme: Theme.dark,
+    toggleTheme: () => {
+    },
 });
 
